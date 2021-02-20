@@ -16,12 +16,12 @@
 	<card name="Hand Grenade" hud="gg" description="Boom on the go" />
 	<card name="Flash Grenade" hud="gb" description="Confuses enemies" />
 	
-	<card name="Red Hawk" hud="am1" description="Pistol Ammo" />
-	<card name="Heavyfield" hud="am2" description="Shotgun Ammo" />
-	<card name="Jackal" hud="am3" description="Full-Auto Ammo" />
-	<card name="Dragonfly" hud="am4" description="Sniper Ammo" />
-	<card name="Ballistics" hud="am5" description="Magnum Ammo" />
-	<card name="NATO Rounds" hud="am6" description="Machine Gun Ammo" />
-	<card name="Fuel" hud="am7" description="??? Ammo" />
+	<card name="Red Hawk" hud="am1" description="Pistol ammo" />
+	<card name="Heavyfield" hud="am2" description="Shotgun ammo" />
+	<card name="Jackal" hud="am3" description="Full-Auto ammo" />
+	<card name="Dragonfly" hud="am4" description="Sniper ammo" />
+	<card name="Ballistics" hud="am5" description="Magnum ammo" />
+	<card name="NATO Rounds" hud="am6" description="Machine gun ammo" />
+	<card name="Fuel" hud="am7" description="??? ammo" />
 	
 </pocketitems>
