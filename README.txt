@@ -36,7 +36,7 @@ Advice:
 	5. Play Testament Evil with as few other mods as possible. It was developed without other mods and no compatibility work went into this version, so play with others at your own peril. Fiend Folio seems to work alright though.
 
 Known Bugs:
-	1. Testament Evil does not work on Linux for some reason.
+	1. Testament Evil does not work on 64-bit Linux for some reason. Use the 32-bit executable instead.
 	2. The merchant may take your money without giving you anything in return if you buy a pocket item while already holding one. Consider dropping them as soon as you see the merchant.
 	3. The flamethrower's weapon skill is a placeholder. It's extremely OP and can cause the game to crash.
 	4. Lilith is one of the few characters that had custom weapons/mechanics implemented in this build, but she may spawn unlimited incubi in some circumstances.
