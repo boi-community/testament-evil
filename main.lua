@@ -610,7 +610,7 @@ end
 function roundTo(fig, place)
 	local place = place or 1
 	local result = math.floor((fig / place) + .5) * place
-	return (result == math.floor(result) and math.floor(result)) or result
+		return (result == tonumber(string.format ("%.0f", result)) and tonumber(string.format ("%.0f", result))) or result
 end
 
 local acts = {}

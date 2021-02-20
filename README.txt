@@ -33,17 +33,16 @@ Advice:
 	3. Manging ammo is a very important skill in Testament Evil. To save ammo, utilize crits and your knife. You want to have as much ammo as possible so that you can spend a lot of it to get out of bad situations quickly. Remember that each new gun you get, up to the four you can carry, can give you a new type of ammo at your disposal. If you see a box of ammo in a room, you know it will go to waste if you don't carry it out with you, so consider switching to a weapon that uses that type of ammo and going wild, then refilling the ammo, if you don't want to carry that box out.
 	4. The weapon and knife skills are get-out-of-jail-free cards. Try to swap weapons so that you have as many full skills in your pocket as possible, and then use them when you run into a horrible room that is going to kill you or drain all your ammo.
 	5. Play as Leon if you want balance. Other characters, especially modded characters, may work but are unlikely to be very balanced.
-	5. Play Testament Evil with as few other mods as possible. It was developed without other mods and no compatibility work went into this version, so play with others at your own peril. Fiend Folio seems to work alright though.
+	6. Play Testament Evil with as few other mods as possible. It was developed without other mods and no compatibility work went into this version, so play with others at your own peril. Fiend Folio seems to work alright though.
 
 Known Bugs:
-	1. Testament Evil does not work on 64-bit Linux for some reason. Use the 32-bit executable instead.
-	2. The merchant may take your money without giving you anything in return if you buy a pocket item while already holding one. Consider dropping them as soon as you see the merchant.
-	3. The flamethrower's weapon skill is a placeholder. It's extremely OP and can cause the game to crash.
-	4. Lilith is one of the few characters that had custom weapons/mechanics implemented in this build, but she may spawn unlimited incubi in some circumstances.
-	5. The Merchant's blue fires may sometimes spawn as purple. Try dodging the shots if this happens.
-	6. The cursor may not realize you're in full screen and get confused. Try pressing F, moving the mouse around, or starting the game in windowed mode if this happens.
-	7. Many things may go wrong if you exit and continue.
-	8. You may encounter brand new bugs you can call your very own or rare mysterious crashes for no obvious reason.
+	- The merchant may take your money without giving you anything in return if you buy a pocket item while already holding one. Consider dropping them as soon as you see the merchant.
+	- The flamethrower's weapon skill is a placeholder. It's extremely OP and can cause the game to crash.
+	- Lilith is one of the few characters that had custom weapons/mechanics implemented in this build, but she may spawn unlimited incubi in some circumstances.
+	- The Merchant's blue fires may sometimes spawn as purple. Try dodging the shots if this happens.
+	- The cursor may not realize you're in full screen and get confused. Try pressing F, moving the mouse around, or starting the game in windowed mode if this happens.
+	- Many things may go wrong if you exit and continue.
+	- You may encounter brand new bugs you can call your very own or rare mysterious crashes for no obvious reason.
 	
 Special Console Commands:
 	1. ldebug: enables leon debug mode
