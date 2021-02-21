@@ -498,10 +498,10 @@ function l:leonCmd(cmd, params)
 		for i, spawn in ipairs(spawns) do
 			Isaac.Spawn(5, 100, spawn, center + Vector(-40, -80) + Vector((i-1)*40, 0), Vector(0, 0), nil)
 		end
-		local check = {"hg", "hy", "hr"}
-		for i = 1, 3 do
+		local check = {"hg", "hy", "hr","hb"}
+		for i = 1, 4 do
 			for j, spawn in ipairs(check) do
-				Isaac.Spawn(5, 300, pocket[spawn].id, center + Vector(-200, 60) + Vector((i-1)*40, (j-1)*30), Vector(0, 0), nil)
+				Isaac.Spawn(5, 300, pocket[spawn].id, center + Vector(-200, 30) + Vector((i-1)*40, (j-1)*30), Vector(0, 0), nil)
 			end
 		end
 		check = {"am1", "am2", "am3", "am4", "am5", "am6", "am7"}
@@ -5683,7 +5683,7 @@ function l:onPocket(card)
 			local type = pocket[card].type
 			local fail = false
 			if type == 'herb' then
-				if card == pocket.hgy.id or card == pocket.hgry.id then
+				if card == pocket.hgy.id or card == pocket.hgry.id or card == pocket.hgby.id then
 					player:AddMaxHearts(2)
 				end
 				if card == pocket.hg.id or card == pocket.hgy.id then
@@ -5695,7 +5695,13 @@ function l:onPocket(card)
 				if card == pocket.hggg.id or card == pocket.hgr.id or card == pocket.hgry.id then
 					player:AddHearts(24)
 				end
-				if card == pocket.hy.id or card == pocket.hr.id or card == pocket.hry.id then
+				if card == pocket.hgb.id or card == pocket.hgby.id then
+					player:AddSoulHearts(1)	
+				end
+				if card == pocket.hgbb.id then
+					player:AddSoulHearts(2)
+				end
+				if card == pocket.hy.id or card == pocket.hr.id or card == pocket.hry.id or card == pocket.hb.id or card == pocket.hbb.id then
 					player:AddCard(card)
 					fail = true
 				end
@@ -6006,6 +6012,7 @@ function l.getDropTable()
 			{34, {5, 300, pocket[gPOC.herblist[1] ].id}}, -- green
 			{2 * yellowmult, {5, 300, pocket[gPOC.herblist[2] ].id}, 'yel'}, -- yellow (increases  yellow count when picked)
 			{6 * rhmult, {5, 300, pocket[gPOC.herblist[3] ].id}}, -- red
+			{6, {5, 300, pocket[gPOC.herblist[10] ].id}}, -- blue
 		},
 		pickcoin = {
 			{1, {5, 20, 0}}, -- random
@@ -6030,6 +6037,7 @@ function l.getDropTable()
 			{5, {5, 300, pocket[gPOC.herblist[1] ].id}}, -- green
 			{1, {5, 300, pocket[gPOC.herblist[2] ].id}}, -- yellow
 			{3 * rhmult, {5, 300, pocket[gPOC.herblist[3] ].id}}, -- red
+			{3, {5, 300, pocket[gPOC.herblist[10] ].id}}, --blue
 		},
 		merchkilled = {
 			{3, {5, 350, 70}}, -- louse

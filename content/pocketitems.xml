@@ -2,15 +2,22 @@
 	<card name="Green Herb" hud="hg" description="Restores a little health" />
 	<card name="Yellow Herb" hud="hy" description="Mix with a green herb" />
 	<card name="Red Herb" hud="hr" description="Mix with a green herb" />
-	
+	<card name="Blue Herb" hud="hb" description="Mix with a green herb" />
+
 	<card name="Green Herb x2" hud="hgg" description="Restores significant health" />
 	<card name="Green Herb x3" hud="hggg" description="Restores health completely" />
 	
+	<card name="Blue Herb x2" hud="hbb" description="Mix with a green herb" />
+
 	<card name="Mixed Herbs (G+R)" hud="hgr" description="Restores health completely" />
+	<card name="Mixed Herbs (G+B)" hud="hgb" description="Grants a little protection" />
 	<card name="Mixed Herbs (G+Y)" hud="hgy" description="Increases maximum health" />
 	<card name="Mixed Herbs (R+Y)" hud="hry" description="Mix with a green herb" />
 	
+	<card name="Mixed Herbs (G+B+B)" hud="hgbb" description="Grants some protection" />
+
 	<card name="Mixed Herbs (G+R+Y)" hud="hgry" description="Increases and restores health completely" />
+	<card name="Mixed Herbs (G+B+Y)" hud="hgby" description="Increases and protects health" />
 	
 	<card name="Incendiary Grenade" hud="gr" description="Instant inferno" />
 	<card name="Hand Grenade" hud="gg" description="Boom on the go" />
@@ -18,7 +25,7 @@
 	
 	<card name="Red Hawk" hud="am1" description="Pistol ammo" />
 	<card name="Heavyfield" hud="am2" description="Shotgun ammo" />
-	<card name="Jackal" hud="am3" description="Full-Auto ammo" />
+	<card name="Jackal" hud="am3" description="Full-auto ammo" />
 	<card name="Dragonfly" hud="am4" description="Sniper ammo" />
 	<card name="Ballistics" hud="am5" description="Magnum ammo" />
 	<card name="NATO Rounds" hud="am6" description="Machine gun ammo" />
