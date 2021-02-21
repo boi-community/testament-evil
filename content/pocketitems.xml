@@ -13,7 +13,8 @@
 	<card name="Mixed Herbs (G+B)" hud="hgb" description="Grants a little protection" />
 	<card name="Mixed Herbs (G+Y)" hud="hgy" description="Increases maximum health" />
 	<card name="Mixed Herbs (R+Y)" hud="hry" description="Mix with a green herb" />
-	
+	<card name="Mixed Herbs (B+Y)" hud="hby" description="Mix with a green herb" />
+
 	<card name="Mixed Herbs (G+B+B)" hud="hgbb" description="Grants some protection" />
 
 	<card name="Mixed Herbs (G+R+Y)" hud="hgry" description="Increases and restores health completely" />

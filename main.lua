@@ -5701,7 +5701,7 @@ function l:onPocket(card)
 				if card == pocket.hgbb.id then
 					player:AddSoulHearts(2)
 				end
-				if card == pocket.hy.id or card == pocket.hr.id or card == pocket.hry.id or card == pocket.hb.id or card == pocket.hbb.id then
+				if card == pocket.hy.id or card == pocket.hr.id or card == pocket.hry.id or card == pocket.hb.id or card == pocket.hbb.id or card == pocket.hby.id then
 					player:AddCard(card)
 					fail = true
 				end
