@@ -1,0 +1,37 @@
+<items gfxroot="gfx/" version="1">
+	<passive name="Attache Case" description="Gun gamemode enabled" cache="" gfx="collectible_attachecase.png" cache="all" />
+	
+	<passive name="Placeholder" description="it's nothing..." cache="" gfx="collectible_blank.png" cache="all" />
+	
+	<passive name="Handgun" description="A standard 9mm handgun" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Punishing Handgun" description="Blast a hole through multiple enemies!" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Lucky Burst" description="Uses up ammo quickly..." cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Machine Pistol" description="A fully-automatic machine pistol" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Pump-Action Shotgun" description="Don't leave home without it" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Auto Shotgun" description="Wide shot, fast firing" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Assault Shotgun" description="Low spread, high range" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Assault Rifle" description="Spray and pray" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Rusty Typewriter" description="It might jam..." cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="SMG" description="Many bullets!" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Bolt Sniper" description="Aim for the head" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Heavy Sniper" description="Aim for anything" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Magnum" description="Really powerful, especially against living things" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Dual Revolvers" description="They're pretty good" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Minigun" description="Eeeyaugh!" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Machine Gun" description="Now that's what I call backup" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Chainsaw" description="Where's everybody going? Bingo?" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Flamethrower" description="Hasta luego" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Grenade Launcher" description="Equipped with ballistics" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Rocket Launcher" description="Comes with one rocket" cache="" gfx="collectible_blank.png" cache="all" />
+	
+	<active name="Skill: Killer Sight" description="It's mid-day!" cache="" gfx="collectible_wskill_killersight.png" maxcharges="12" />
+	<active name="Skill: Quad Damage" description="Three times the power!" cache="" gfx="collectible_wskill_quaddamage.png" maxcharges="12" />
+	<active name="Skill: Professional Reflex" description="I'm in the zone!" cache="" gfx="collectible_wskill_professional.png" maxcharges="12" />
+	<active name="Skill: Scary Cherry" description="I'm in the zone!" cache="" gfx="collectible_wskill_scary.png" maxcharges="12" />
+	<active name="Skill: Supercharge" description="I'm in the zone!" cache="" gfx="collectible_wskill_supercharge.png" maxcharges="12" />
+	<active name="Skill: Doom" description="I'm in the zone!" cache="" gfx="collectible_wskill_doom.png" maxcharges="12" />
+	
+	<passive name="Incendiary Grenade" description="Throw it" cache="" gfx="collectible_grenade_incendiary.png" />
+	<passive name="Hand Grenade" description="Throw it" cache="" gfx="collectible_grenade_hand.png" />
+	<passive name="Flash Grenade" description="Throw it" cache="" gfx="collectible_grenade_flash.png" />
+</items>

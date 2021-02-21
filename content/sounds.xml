@@ -1,0 +1,277 @@
+<sounds root="sfx/">
+	<sound name="f_flame_start">
+		<sample weight="1" path="f_flame_start.wav" />
+	</sound>
+	<sound name="f_flame_loop">
+		<sample weight="1" path="f_flame_loop.wav" />
+	</sound>
+	<sound name="f_flame_finish">
+		<sample weight="1" path="f_flame_finish.wav" />
+	</sound>
+	<sound name="f_minigun_start">
+		<sample weight="1" path="f_minigun_start.wav" />
+	</sound>
+	<sound name="f_minigun_loop">
+		<sample weight="1" path="f_minigun_loop.wav" />
+	</sound>
+	<sound name="f_minigun_finish">
+		<sample weight="1" path="f_minigun_finish.wav" />
+	</sound>
+	<sound name="f_hand_light">
+		<sample weight="1" path="f_hand_light.wav" />
+	</sound>
+	<sound name="f_hand_light2">
+		<sample weight="1" path="f_hand_light2.wav" />
+	</sound>
+	<sound name="f_hand_light3">
+		<sample weight="1" path="f_hand_light3.wav" />
+	</sound>
+	<sound name="f_hand_med">
+		<sample weight="1" path="f_hand_med.wav" />
+	</sound>
+	<sound name="f_hand_med2">
+		<sample weight="1" path="f_hand_med2.wav" />
+	</sound>
+	<sound name="f_laser_heavy">
+		<sample weight="1" path="f_laser_heavy.wav" />
+	</sound>
+	<sound name="f_laser_light">
+		<sample weight="1" path="f_laser_light.wav" />
+	</sound>
+	<sound name="f_shotgun_heavy">
+		<sample weight="1" path="f_shotgun_heavy.wav" />
+	</sound>
+	<sound name="f_shotgun_med">
+		<sample weight="1" path="f_shotgun_med.wav" />
+	</sound>
+	<sound name="f_sniper_heavy">
+		<sample weight="1" path="f_sniper_heavy.wav" />
+	</sound>
+	<sound name="f_rapid_light">
+		<sample weight="1" path="f_rapid_light.wav" />
+	</sound>
+	<sound name="f_rapid_light2">
+		<sample weight="1" path="f_rapid_light2.wav" />
+	</sound>
+	<sound name="f_rapid_med">
+		<sample weight="1" path="f_rapid_med.wav" />
+	</sound>
+	<sound name="f_rapid_med2">
+		<sample weight="1" path="f_rapid_med2.wav" />
+	</sound>
+	<sound name="f_rapid_heavy">
+		<sample weight="1" path="f_rapid_heavy.wav" />
+	</sound>
+	<sound name="f_silenced_med">
+		<sample weight="1" path="f_silenced_med.wav" />
+	</sound>
+	<sound name="f_sniper_med">
+		<sample weight="1" path="f_sniper_med.wav" />
+	</sound>
+	<sound name="f_chainidle_start">
+		<sample weight="1" path="f_chainidle_start.wav" />
+	</sound>
+	<sound name="f_chainidle_loop">
+		<sample weight="1" path="f_chainidle_loop.wav" />
+	</sound>
+	<sound name="f_chainidle_finish">
+		<sample weight="1" path="f_chainidle_finish.wav" />
+	</sound>
+	<sound name="f_chainrun_start">
+		<sample weight="1" path="f_chainrun_start.wav" />
+	</sound>
+	<sound name="f_chainrun_loop">
+		<sample weight="1" path="f_chainrun_loop.wav" />
+	</sound>
+	<sound name="f_chainrun_finish">
+		<sample weight="1" path="f_chainrun_finish.wav" />
+	</sound>
+	<sound name="f_launcher">
+		<sample weight="1" path="f_launcher.wav" />
+	</sound>
+	<sound name="f_launcher2">
+		<sample weight="1" path="f_launcher2.wav" />
+	</sound>
+	<sound name="g_explode_light">
+		<sample weight="1" path="g_explode_light.wav" />
+	</sound>
+	<sound name="g_flameburst">
+		<sample weight="1" path="g_flameburst.wav" />
+	</sound>
+	<sound name="g_flameburst2">
+		<sample weight="1" path="g_flameburst2.wav" />
+	</sound>
+	<sound name="g_flashbang">
+		<sample weight="1" path="g_flashbang.wav" />
+	</sound>
+	<sound name="g_impact">
+		<sample weight="1" path="g_impact.wav" />
+	</sound>
+	<sound name="g_pinpull">
+		<sample weight="1" path="g_pinpull.wav" />
+	</sound>
+	<sound name="k_deflect">
+		<sample weight="1" path="k_deflect.wav" />
+	</sound>
+	<sound name="k_ding">
+		<sample weight="1" path="k_ding.wav" />
+	</sound>
+	<sound name="k_slash">
+		<sample weight="1" path="k_slash.wav" />
+		<sample weight="1" path="k_slash3.wav" />
+	</sound>
+	<sound name="k_crit">
+		<sample weight="1" path="k_crit.wav" />
+	</sound>
+	<sound name="k_swing1">
+		<sample weight="1" path="k_swing1.wav" />
+	</sound>
+	<sound name="k_swing2">
+		<sample weight="1" path="k_swing2.wav" />
+	</sound>
+	<sound name="k_swing3">
+		<sample weight="1" path="k_swing3.wav" />
+	</sound>
+	<sound name="k_swing4">
+		<sample weight="1" path="k_swing4.wav" />
+	</sound>
+	<sound name="k_swing5">
+		<sample weight="1" path="k_swing5.wav" />
+	</sound>
+	<sound name="r_cocka">
+		<sample weight="1" path="r_cocka.wav" />
+	</sound>
+	<sound name="r_cocka2">
+		<sample weight="1" path="r_cocka2.wav" />
+	</sound>
+	<sound name="r_cocka3">
+		<sample weight="1" path="r_cocka3.wav" />
+	</sound>
+	<sound name="r_cocka4">
+		<sample weight="1" path="r_cocka4.wav" />
+	</sound>
+	<sound name="r_cockb">
+		<sample weight="1" path="r_cockb.wav" />
+	</sound>
+	<sound name="r_cockb2">
+		<sample weight="1" path="r_cockb2.wav" />
+	</sound>
+	<sound name="r_cockb3">
+		<sample weight="1" path="r_cockb3.wav" />
+	</sound>
+	<sound name="r_cockb4">
+		<sample weight="1" path="r_cockb4.wav" />
+	</sound>
+	<sound name="r_fullcock">
+		<sample weight="1" path="r_fullcock.wav" />
+	</sound>
+	<sound name="r_fullcock2">
+		<sample weight="1" path="r_fullcock2.wav" />
+	</sound>
+	<sound name="r_shell">
+		<sample weight="1" path="r_shell.wav" />
+	</sound>
+	<sound name="r_shell2">
+		<sample weight="1" path="r_shell2.wav" />
+	</sound>
+	<sound name="v_attach">
+		<sample weight="1" path="v_attach.wav" />
+	</sound>
+	<sound name="v_charged">
+		<sample weight="1" path="v_charged.wav" />
+	</sound>
+	<sound name="v_click">
+		<sample weight="1" path="v_click.wav" />
+	</sound>
+	<sound name="v_empty">
+		<sample weight="1" path="v_empty.wav" />
+	</sound>
+	<sound name="v_equipment">
+		<sample weight="1" path="v_equipment.wav" />
+	</sound>
+	<sound name="v_pack">
+		<sample weight="1" path="v_pack.wav" />
+	</sound>
+	<sound name="v_spin">
+		<sample weight="1" path="v_spin.wav" />
+	</sound>
+	<sound name="v_unlatch">
+		<sample weight="1" path="v_unlatch.wav" />
+	</sound>
+	<sound name="v_whoosh">
+		<sample weight="1" path="v_whoosh.wav" />
+	</sound>
+	<sound name="v_whoosh2">
+		<sample weight="1" path="v_whoosh2.wav" />
+	</sound>
+	<sound name="v_explosion_small">
+		<sample weight="1" path="v_explosion_small.wav" />
+	</sound>
+	<sound name="v_explosion_small2">
+		<sample weight="1" path="v_explosion_small2.wav" />
+	</sound>
+	
+	<sound name="v_blood_laser">
+		<sample weight="1" path="blood laser short 3.wav" />
+		<sample weight="1" path="blood laser short 4.wav" />
+	</sound>
+	
+	<sound name="fire_burn">
+		<sample weight="1" path="fire_burn.wav" />
+	</sound>
+	
+	<sound name="m_comeback">
+		<sample weight="1" path="m_comeback.wav" />
+	</sound>
+	<sound name="m_comment_avidcollector">
+		<sample weight="1" path="m_comment_avidcollector.wav" />
+	</sound>
+	<sound name="m_comment_elephant">
+		<sample weight="1" path="m_comment_elephant.wav" />
+	</sound>
+	<sound name="m_comment_guts">
+		<sample weight="1" path="m_comment_guts.wav" />
+	</sound>
+	<sound name="m_comment_penetrate">
+		<sample weight="1" path="m_comment_penetrate.wav" />
+	</sound>
+	<sound name="m_comment_reloading">
+		<sample weight="1" path="m_comment_reloading.wav" />
+	</sound>
+	<sound name="m_comment_thatsaweapon">
+		<sample weight="1" path="m_comment_thatsaweapon.wav" />
+	</sound>
+	<sound name="m_comment_threeround">
+		<sample weight="1" path="m_comment_threeround.wav" />
+	</sound>
+	<sound name="m_goodthings">
+		<sample weight="1" path="m_goodthings.wav" />
+	</sound>
+	<sound name="m_highprice">
+		<sample weight="1" path="m_highprice.wav" />
+	</sound>
+	<sound name="m_isthatall">
+		<sample weight="1" path="m_isthatall.wav" />
+	</sound>
+	<sound name="m_killed">
+		<sample weight="1" path="m_killed.wav" />
+	</sound>
+	<sound name="m_notenoughcash">
+		<sample weight="1" path="m_notenoughcash.wav" />
+	</sound>
+	<sound name="m_rarethings">
+		<sample weight="1" path="m_rarethings.wav" />
+	</sound>
+	<sound name="m_thankyou">
+		<sample weight="1" path="m_thankyou.wav" />
+	</sound>
+	<sound name="m_welcome">
+		<sample weight="1" path="m_welcome.wav" />
+	</sound>
+	<sound name="m_whaddayabuyin">
+		<sample weight="1" path="m_whaddayabuyin.wav" />
+	</sound>
+	<sound name="m_whaddayasellin">
+		<sample weight="1" path="m_whaddayasellin.wav" />
+	</sound>
+</sounds>
