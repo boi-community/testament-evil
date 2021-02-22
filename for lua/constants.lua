@@ -25,7 +25,7 @@ gunmod_CONST = {
     --Inventory item types
     IT = enumerate({'gun', 'normal', 'mod', 'pocket'}),
     --Gun Fire Mode
-    FM = enumerate({'auto', 'charge'}),
+    FM = enumerate({'auto', 'charge', 'tap'}),
     --Player perks
     --PR = enumerate('upgradefill', 'knifeboss', 'poopkilla', 'soulherbs', 'shotparry'),
   },

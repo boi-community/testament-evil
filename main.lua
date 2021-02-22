@@ -547,7 +547,7 @@ local function getPrice(object, pricetype)
 
 	if pricetype == 'buy' then
 		if object.kind == EIT.gun then
-			price = bp.gun + (#object.id.mods * bp.gunmod)
+			price = (bp.gun + (#object.id.mods * bp.gunmod)) * object.id.buyprice
 			if object.id.name == "Rocket Launcher" then
 				price = bp.rpg
 			end
@@ -565,7 +565,7 @@ local function getPrice(object, pricetype)
 		price = math.max(price, 0)
 	elseif pricetype == 'sell' then
 		if object.kind == EIT.gun then
-			price = sp.gun + (#object.id.mods * sp.gunmod)
+			price = (sp.gun + (#object.id.mods * sp.gunmod)) * object.id.buyprice
 			--for i, mod in ipairs(object.id.mods) do
 			--	local mult = math.max(0, i-1)
 			--	price = price + (mult * sp.gunlvl)
@@ -1503,7 +1503,7 @@ function l:post_update()
 			if gun.sp[ESP.laserp5] and rng:RandomFloat() < .5 then
 				gun.firedelay = gun.firedelay - 1--math.max(0, gun.firedelay - 1)
 			end
-			if gun.firemode == EFM.auto then
+			if gun.firemode == EFM.auto or gun.firemode == EFM.tap then
 				if gun.firedelay >= 0 then
 					gun.spread = approach(gun.spread, gun.spreadmax, (gun.spreadmax * gun.spreadgain) / 30)
 				else
@@ -4551,6 +4551,7 @@ function l.gunControl(player)
 		local resammo = gun.resammo--math.floor((d.clips[gun.ammotype] / bpct) + .001)
 		local hasreserve = resammo >= 1
 		local ischarge = gun.firemode == EFM.charge
+		local istap = gun.firemode == EFM.tap
 		local hasshots = gun.clip > 0 or gun.chamber > 0
 		local canshoot = d.aiming or gun.alwaysaimed
 		local reloading = gun.reloading
@@ -4561,7 +4562,6 @@ function l.gunControl(player)
 		gc.shootqueue = gc.shootqueue and player:IsExtraAnimationFinished() and (not gun.reloading or (gun.firedelay > 10 and not ischarge))
 
 		gc.using = input.shoot
-
 		--reload
 		gc.reload = input.reload and not gun.singleuse
 		if gun.firingshots == 0 and gun.clip + gun.subclip < 1 and not gun.reloading then
@@ -4575,12 +4575,15 @@ function l.gunControl(player)
 			gc.charge = input.shoot or input.shootrelease
 			gc.load = input.shoot
 			gc.shoot = input.shootrelease
+		elseif istap then
+			gc.charge = false
+			gc.load = input.shoot
+			gc.shoot = input.shootpress
 		else
 			gc.charge = false
 			gc.shoot = input.shoot
 			gc.load = gc.shoot
 		end
-
 		gc.shootpress = input.shootpress
 		gc.shoot = (canshoot or gc.shooting or gun.chamber > 0) and (gc.shoot or gc.shootqueue)
 		gc.load = (canshoot and gc.load) or gc.shoot
@@ -4815,6 +4818,12 @@ function l.gunUse(en, gun)
 									gc.shootqueue = false
 								--to shoot
 								else
+									if gun.critchance then
+										if rng:RandomFloat() <= gun.critchance then
+											gun.crit = true
+											gun.chargebonus = gun.critbonus
+										end
+									end
 									gun.firingshots = gun.chamber
 
 									if gun.sp[ESP.chargedamage] then
@@ -4827,7 +4836,7 @@ function l.gunUse(en, gun)
 									gun.firingshots = gun.firingshots * gun.shotsmult
 
 									gun.chamber = 0
-									if gun.firemode == EFM.charge then
+									if gun.firemode == EFM.charge or gun.firemode == EFM.tap then
 										gun.firedelay = 0
 									end
 								end
@@ -4852,7 +4861,6 @@ function l.gunUse(en, gun)
 					d.activeuntil = en.FrameCount + 60
 					gun.shot = true; gun.shotfx = true
 					gun.using = true
-
 					if gun.ksvictims then
 						for i = #gun.ksvictims, 1, -1 do
 							if gun.ksvictims[i]:IsDead() or (not gun.ksvictims[i]:Exists()) then
@@ -4875,7 +4883,6 @@ function l.gunUse(en, gun)
 							gun.firingshots = 0
 						end
 					end
-
 					--jamming
 					if gun.sp[ESP.jams] and (gun.clip / gun.clipsize) < .8 then
 						if rng:RandomFloat() < .75 / (18 + stat.Luck) then
@@ -4883,7 +4890,6 @@ function l.gunUse(en, gun)
 							gun.reloading = true
 						end
 					end
-
 					if gun.firingshots <= 0 then
 						gun.charge = 0
 						if gun.epictgt and gun.epictgt:Exists() then
@@ -5222,7 +5228,6 @@ function l.gunFire(en, gun)
 		end
 		local screenshake = (gun.crit and math.max(gun.screenshake, gun.screenshakecrit)) or (gun.chargescale and gun.chargebonus <1 and (gun.screenshakenocharge or 0)) or gun.screenshake
 		game:ShakeScreen(screenshake)
-
 		for h, fam in ipairs(d.gunners) do
 			local weapons = fam:GetData().weapons
 			if weapons then

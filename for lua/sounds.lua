@@ -50,6 +50,9 @@ gunmod_SFX = {
 			light = Isaac.GetSoundIdByName("f_launcher2"),
 			heavy = Isaac.GetSoundIdByName("f_launcher"),
 		},
+		nt = {
+			pistol = Isaac.GetSoundIdByName("f_nt_pistol"),
+		},
 	},
 	cock = {
 		start = Isaac.GetSoundIdByName("r_cocka"),

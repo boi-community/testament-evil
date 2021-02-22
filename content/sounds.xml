@@ -38,6 +38,9 @@
 	<sound name="f_laser_light">
 		<sample weight="1" path="f_laser_light.wav" />
 	</sound>
+	<sound name="f_nt_pistol">
+		<sample weight="1" path="f_nt_pistol.wav" />
+	</sound>
 	<sound name="f_shotgun_heavy">
 		<sample weight="1" path="f_shotgun_heavy.wav" />
 	</sound>

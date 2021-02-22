@@ -19,6 +19,7 @@ local basedata = {
 	flamethrower = {Isaac.GetItemIdByName("Flamethrower"), "gun_flamethrower", 32},
 	grenadelauncher = {Isaac.GetItemIdByName("Grenade Launcher"), "gun_grenadelauncher", 40},
 	rocketlauncher = {Isaac.GetItemIdByName("Rocket Launcher"), "gun_rpg", 40},
+	goldenrevolver = {Isaac.GetItemIdByName("Golden Revolver"), "gun_goldenrevolver", 16},
 }
 
 gunmod_WEP = {
@@ -53,7 +54,7 @@ gunmod_WEP.WeaponTypes = {
     description = 'it shoots',
     base = 'assaultrifle',
     rank = 1,
-
+    buyprice = 1, 
     --Unique modifiers
     copies = {0, 0, 0, 1},
     sp = {}, mods = {}, tf = {},
@@ -82,10 +83,12 @@ gunmod_WEP.WeaponTypes = {
     spreadmin = 0, spreadmax = 15, spreadloss = 1, spreadgain = .5,
     velocity = 1.5, recoil = 1.5, knockback = .25,
     screenshake = 0,
-
+    
     --Charging Stats
     chargescale = false, chargemin = .75,
-    critframes = 0, critconfuse = 0,
+    
+    --Critical Stats
+    critchance = 0, critframes = 0, critconfuse = 0,
 
     --sounds
     sndshoot = {snd.shoot.rapid.light2, 1, 1}, sndlaser = {snd.shoot.laser.light, .6, 1},
@@ -745,6 +748,31 @@ gunmod_WEP.WeaponTypes = {
     sndstart = {snd.shoot.chainsaw.runstart, 1, 1}, sndloop = {snd.shoot.chainsaw.runloop, 1, 1}, sndfinish = {snd.shoot.chainsaw.runfinish, 1, 1},
     sndidlestart = {snd.shoot.chainsaw.idlestart, 0, .6}, sndidleloop = {snd.shoot.chainsaw.idleloop, 1, .6}, sndidlefinish = {snd.shoot.chainsaw.idlefinish, 0, .6},
   },
+  --:NEW:
+  goldenrevolver = {
+    meta = {parent = 'defaultauto', forsale = true, rank = 2},
+    name = 'Golden Revolver',
+    base = 'goldenrevolver',
+    description = 'Pop pop!',
+    skill = gCON.Id.WSSight,
+    firemode = EFM.tap,
+    buyprice = 1.25, 
+    clipperfill = 10,
+    ammotype = EAM.magnum,
+    clipsize = 10, critconfuse = 35, critbonus = 1.5, critchance = 0.05,
+    screenshake = 0, screenshakecrit = 5,
+    as = {},
+    ms = {damage = 0.8},
+    spreadmin = 4,
+    upgrade = {
+      {add = {critchance = 0.05}, str = 'crit chance +5'}, -- 1
+      {add = {clipsize = 2}, str = 'clip +2'}, -- 2
+      {add = {clipsize = 3}, str = 'clip +3'}, -- 3
+      {add = {critchance = 0.05}, str = 'crit chance + 5'}, -- 4
+      {add = {critchance = 0.1}, str = 'crit chance +10'}, -- 5
+    },
+    sndshoot = {snd.shoot.nt.pistol, 1, 1}, sndrl1 = {snd.cock.start4, 1, 1}, sndrl2 = {snd.cock.finish4, 1, 1},
+  },
   --FAMILIAR CUSTOMS
   fam_base = {
     meta = {parent = 'default'},
@@ -756,7 +784,7 @@ gunmod_WEP.WeaponTypes = {
     as = {damage = 3.5 - 3.5, maxfiredelay = 10},
 
     clipsize = 20, reloadtime = 50, spreadmax = 10, knockback = .02,
-    sndshoot = {snd.shoot.hand.light, .7, 1.5}, sndrl1 = {snd.cock.start4, .7, 1.5}, sndrl2 = {snd.cock.finish4, .7, 1.5},
+    sndshoot = {snd.shoot.hand.light3, 1, 1}, sndrl1 = {snd.cock.start2, 1, 1}, sndrl2 = {snd.misc.spin, 1, 1},
   },
   --BOSS CUSTOMS
   boss_hauntshammer = {

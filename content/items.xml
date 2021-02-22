@@ -4,7 +4,6 @@
 	<passive name="Placeholder" description="it's nothing..." cache="" gfx="collectible_blank.png" cache="all" />
 	
 	<passive name="Handgun" description="A standard 9mm handgun" cache="" gfx="collectible_blank.png" cache="all" />
-	<passive name="Punishing Handgun" description="Blast a hole through multiple enemies!" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Lucky Burst" description="Uses up ammo quickly..." cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Machine Pistol" description="A fully-automatic machine pistol" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Pump-Action Shotgun" description="Don't leave home without it" cache="" gfx="collectible_blank.png" cache="all" />
@@ -18,11 +17,12 @@
 	<passive name="Magnum" description="Really powerful, especially against living things" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Dual Revolvers" description="They're pretty good" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Minigun" description="Eeeyaugh!" cache="" gfx="collectible_blank.png" cache="all" />
-	<passive name="Machine Gun" description="Now that's what I call backup" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Machine Gun" description="Now that's what I call backup!" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Chainsaw" description="Where's everybody going? Bingo?" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Flamethrower" description="Hasta luego" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Grenade Launcher" description="Equipped with ballistics" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Rocket Launcher" description="Comes with one rocket" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Golden Revolver" description="Pop pop!" cache="" gfx="collectible_blank.png" cache="all" />
 	
 	<active name="Skill: Killer Sight" description="It's mid-day!" cache="" gfx="collectible_wskill_killersight.png" maxcharges="12" />
 	<active name="Skill: Quad Damage" description="Three times the power!" cache="" gfx="collectible_wskill_quaddamage.png" maxcharges="12" />
