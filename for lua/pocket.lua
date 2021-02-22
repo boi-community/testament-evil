@@ -17,6 +17,7 @@ local herbmix = {
 	hgy = {hr = "hgry", hb = "hgby"},
 	hgb = {hb = "hgbb", hy = "hgby"},
 	hry = {hg = "hgry"},
+	hby = {hg = "hgby"},
 }
 
 local pocketdat = {}
