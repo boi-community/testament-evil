@@ -7687,7 +7687,7 @@ function l.gunMenu(reload)
 						table.remove(gVAR.merchantinv[1], object.ind)
 					elseif object.kind == EIT.pocket then
 						if pocket[object.id].type == 'herb' then
-							gVAR.herbtax = gVAR.herbtax + gBAL.difftable[EDF.herbtax][gSET.difficulty]
+							gVAR.herbtax = gVAR.herbtax + gBAL.difftable[EDF.herbtax][gSET.Difficulty]
 						end
 						player:AddCard(object.id)
 						table.remove(gVAR.merchantinv[3], object.ind)
