@@ -4833,8 +4833,14 @@ function l.gunUse(en, gun)
 									if gun.ksvictims then
 										gun.firingshots = gun.firingshots * math.min(12, #gun.ksvictims)
 									end
+									if gun.doubleshot and gun.clip > 0 then
+										if rng:RandomFloat() <= gun.doubleshot then
+											gun.firingshots = gun.firingshots + 1
+											gun.clip = gun.clip - 1
+										end
+									end
 									gun.firingshots = gun.firingshots * gun.shotsmult
-
+									
 									gun.chamber = 0
 									if gun.firemode == EFM.charge or gun.firemode == EFM.tap then
 										gun.firedelay = 0

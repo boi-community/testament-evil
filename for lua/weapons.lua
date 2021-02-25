@@ -82,7 +82,7 @@ gunmod_WEP.WeaponTypes = {
     damagemult = 1, sizemult = 1,
     spreadmin = 0, spreadmax = 15, spreadloss = 1, spreadgain = .5,
     velocity = 1.5, recoil = 1.5, knockback = .25,
-    screenshake = 0,
+    screenshake = 0, doubleshot = 0,
     
     --Charging Stats
     chargescale = false, chargemin = .75,
@@ -750,7 +750,7 @@ gunmod_WEP.WeaponTypes = {
   },
   --:NEW:
   goldenrevolver = {
-    meta = {parent = 'defaultauto', forsale = true, rank = 2},
+    meta = {parent = 'defaultauto', forsale = true, rank = 1},
     name = 'Golden Revolver',
     base = 'goldenrevolver',
     description = 'Pop pop!',
@@ -759,17 +759,17 @@ gunmod_WEP.WeaponTypes = {
     buyprice = 1.25, 
     clipperfill = 10,
     ammotype = EAM.magnum,
-    clipsize = 10, critconfuse = 35, critbonus = 1.5, critchance = 0.05,
-    screenshake = 0, screenshakecrit = 5,
+    clipsize = 10, doubleshot = 0.05,
+    screenshake = 3,
     as = {},
     ms = {damage = 0.8},
     spreadmin = 4,
     upgrade = {
-      {add = {critchance = 0.05}, str = 'crit chance +5'}, -- 1
+      {add = {doubleshot = 0.05}, str = 'double chance +5'}, -- 1
       {add = {clipsize = 2}, str = 'clip +2'}, -- 2
       {add = {clipsize = 3}, str = 'clip +3'}, -- 3
-      {add = {critchance = 0.05}, str = 'crit chance + 5'}, -- 4
-      {add = {critchance = 0.1}, str = 'crit chance +10'}, -- 5
+      {add = {doubleshot = 0.05}, str = 'double chance + 5'}, -- 4
+      {add = {doubleshot = 0.1}, str = 'double chance +10'}, -- 5
     },
     sndshoot = {snd.shoot.nt.pistol, 1, 1}, sndrl1 = {snd.cock.start4, 1, 1}, sndrl2 = {snd.cock.finish4, 1, 1},
   },
