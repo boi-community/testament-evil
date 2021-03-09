@@ -1,0 +1,3 @@
+<costumes anm2root="gfx/characters/">
+	<costume anm2path="costume_leon.anm2" type="none" priority="9999" />
+</costumes>    
