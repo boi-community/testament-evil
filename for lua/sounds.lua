@@ -127,5 +127,3 @@ gunmod_SFX = {
 		bloodlaser = Isaac.GetSoundIdByName("v_blood_laser"),
 	},
 }
-
-error()

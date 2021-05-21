@@ -17,7 +17,6 @@ local herbmix = {
 	hgy = {hr = "hgry", hb = "hgby"},
 	hgb = {hb = "hgbb", hy = "hgby"},
 	hry = {hg = "hgry"},
-	hby = {hg = "hgby"},
 }
 
 local pocketdat = {}
@@ -69,5 +68,3 @@ gunmod_POCKET.herbmix = herbmix
 gunmod_POCKET.ammolist = ammolist
 gunmod_POCKET.grenadelist = grenadelist
 gunmod_POCKET.dat = pocketdat
-
-error()

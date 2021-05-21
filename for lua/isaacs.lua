@@ -94,5 +94,3 @@ gunmod_CHR = {
     icon = 'Unknown',
   }
 }
-
-error()

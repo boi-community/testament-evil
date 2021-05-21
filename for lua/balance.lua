@@ -93,5 +93,3 @@ for name, diff in pairs(gunmod_BAL.bossscaler) do
   newtable[Isaac.GetEntityTypeByName(bname)] = diff
 end
 gunmod_BAL.bossscaler = newtable
-
-error()

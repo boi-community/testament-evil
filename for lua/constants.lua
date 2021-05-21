@@ -116,25 +116,11 @@ gunmod_CONST = {
     purple = Color(.45, .35, 1.5, 1.25, 0, 0, 0),
     brown = Color(.55, .85, .65, 1.25, 0, 0, 0),
   },
-  flashlightpick = {
-    {'natural','natural','orange'}, -- basement cellar burning
-    false, --
-    {'natural','blue','blue'}, -- caves catacombs flooded
-    false, --
-    {'blue','natural','purple'}, -- depths necropolis dank
-    false, --
-    {'pink','pink','brown'}, -- womb utero scarred
-    false, --
-    {'blue'}, -- bluewomb
-    {'red','white'}, -- sheol cathedral
-    {'purple','natural'}, -- darkroom chest
-    {'natural'}, -- void
-  },
   lightfrombackdrop = {
-    'natural', 'natural', 'orange', -- basement cellar burning
-    'natural', 'blue', 'blue', -- caves catacombs flooded
-    'blue', 'natural', 'purple', -- depths necropolis dank
-    'pink', 'pink', 'brown', -- womb utero scarred
+    'natural', 'natural', 'orange', -- basement cellar burning downpour dross
+    'natural', 'blue', 'blue', -- caves catacombs flooded mines ashpit
+    'blue', 'natural', 'purple', -- depths necropolis dank mausoleum gehenna
+    'pink', 'pink', 'brown', -- womb utero scarred corpse
     'blue', -- blue womb
     'red', 'white', -- sheol cathedral
     'purple', 'natural', -- darkroom chest
@@ -142,6 +128,17 @@ gunmod_CONST = {
     'natural', 'natural', 'blue', 'brown',-- library shop isaac barren
     'blue', 'red', 'yellow', 'purple',-- secret dice arcade error
     'blue', 'yellow',-- bluesecret ultragreedshop
+    'natural', -- reserved dungeon backdrop (not a thing)
+    'red', -- sacrifice
+    'blue', 'yellow', 'purple', 'green', -- downpour mines mausoleum corpse
+    'purple', -- planetarium
+    'blue', 'yellow', 'purple', 'green', -- downpourentrance secret mausentrance corpseentrance
+    'purple', 'purple', 'purple', -- maus2 mausb mausboss
+    'green', 'green', -- corpse2 corpse3
+    'green', 'orange', 'red', 'green', --dross ashpit gehenna corpse again? (probably placeholder for mortis)
+    'natural', 'natural', 'purple', 'natural', 'purple', 'white', -- home
+    'yellow', 'orange', 'purple', -- mines again/ashpit again/special closet
+
   },
   --Bullshit
   gungfxroot = "gfx/familiars/",
@@ -179,6 +176,3 @@ gunmod_CONST.Sprite.Cursor:Load("gfx/leoncursor.anm2", true)
 gunmod_CONST.Sprite.ScreenFade:Load("gfx/screenfade.anm2", true)
 gunmod_CONST.Sprite.Bar:Load("gfx/uibar.anm2", true)
 gunmod_CONST.Sprite.KnifeIcon:Load("gfx/uiknife.anm2", true)
-
---haha
-error()

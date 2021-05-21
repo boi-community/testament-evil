@@ -24,5 +24,3 @@ gunmod_SET = gunmod_SET or {
 	AutoReload = true,
   ShowDamageValues = false,
 }
-
-error()

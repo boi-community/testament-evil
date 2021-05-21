@@ -1,8 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<name>Leon</name>
-	<directory>leon</directory>
-	<description/>
-	<version>1.0</version>
-	<visibility/>
+    <name>Leon</name>
+    <directory>leon</directory>
+    <id>0</id>
+    <description>Leon.</description>
+    <version>1.0</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Items"/>
+    <tag id="Pickups"/>
+    <tag id="Player Characters"/>
+    <tag id="Hazards"/>
+    <tag id="Tweaks"/>
+    <tag id="Removals"/>
+    <tag id="Shaders"/>
+    <tag id="Sound Effects"/>
+    <tag id="Music"/>
 </metadata>
-

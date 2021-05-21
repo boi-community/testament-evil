@@ -20,27 +20,27 @@ l.data = {}; local gDAT = l.data
 GUNMOD_VARS = {gunmode = false}; l.data.var = GUNMOD_VARS; local gVAR = GUNMOD_VARS;
 
 --constants
-pcall(require, "for lua/constants"); l.data.con = gunmod_CONST; local gCON = gunmod_CONST
+include("for lua/constants"); l.data.con = gunmod_CONST; local gCON = gunmod_CONST
 	local EDF = gCON.EN.DF; local EAM = gCON.EN.AM; local ESP = gCON.EN.SP; local EIT = gCON.EN.IT;
 	local EFM = gCON.EN.FM; local ECP = gCON.EN.CP;
 	local CSP = gCON.Sprite;
 	local ammo = gCON.Ammodat;
 --user settings (move later)
-pcall(require, "for lua/usersettings"); l.data.set = gunmod_SET; local gSET = gunmod_SET
+include("for lua/usersettings"); l.data.set = gunmod_SET; local gSET = gunmod_SET
 --balance values
-pcall(require, "for lua/balance"); l.data.bal = gunmod_BAL; local gBAL = gunmod_BAL
+include("for lua/balance"); l.data.bal = gunmod_BAL; local gBAL = gunmod_BAL
 --sound effects
-pcall(require, "for lua/sounds"); l.data.sfx = gunmod_SFX; local gSFX = gunmod_SFX; local snd = gSFX
+include("for lua/sounds"); l.data.sfx = gunmod_SFX; local gSFX = gunmod_SFX; local snd = gSFX
 --weapon data
-pcall(require, "for lua/weapons"); l.data.wep = gunmod_WEP; local gWEP = gunmod_WEP
+include("for lua/weapons"); l.data.wep = gunmod_WEP; local gWEP = gunmod_WEP
 	local WEPT = gunmod_WEP.WeaponTypes
 --item stats
-pcall(require, "for lua/items"); l.data.itm = gunmod_ITEMS; local gITM = gunmod_ITEMS
+include("for lua/items"); l.data.itm = gunmod_ITEMS; local gITM = gunmod_ITEMS
 --pocket items
-pcall(require, "for lua/pocket"); l.data.poc = gunmod_POCKET; local gPOC = gunmod_POCKET
+include("for lua/pocket"); l.data.poc = gunmod_POCKET; local gPOC = gunmod_POCKET
 	local pocket = gPOC.dat
 --characters
-pcall(require, "for lua/isaacs"); l.data.chr = gunmod_CHR; local gCHR = gunmod_CHR
+include("for lua/isaacs"); l.data.chr = gunmod_CHR; local gCHR = gunmod_CHR
 
 CL_white = Color(1, 1, 1, 1, 0, 0, 0)
 CL_pencil = Color(54/255, 47/255, 45/255, 1, 0, 0, 0)
@@ -223,7 +223,8 @@ local mmenuvar = {
 	path = {},
 }
 
-local font1 = Font(); font1:Load("font/pftempestasevencondensed.fnt")
+--local font1 = Font(); font1:Load("font/pftempestasevencondensed.fnt")
+local font1 = Font(); font1:Load("font/luaminioutlined.fnt")
 
 local Controller = {
     DPAD_LEFT = 0,
@@ -249,6 +250,8 @@ local Controller = {
 local function log(...)
 	local args = {...}
 	for _, v in ipairs(args) do
+		Isaac.ConsoleOutput(tostring(v) .. "\n")
+		Isaac.DebugString(tostring(v))
 		if type(v) == 'number' or type(v) == 'string' or type(v) == 'table' or 'boolean' then
 			table.insert(_log, tostring(v))
 		else
@@ -597,7 +600,8 @@ local function bit(x,p)
 	return x * 2 ^ p
 end
 local function hasbit(x, p)
-	return x % (p + p) >= p
+	--return x % (p | p) >= p
+	return x | p ~= 0
 end
 local function setbit(x, p)
 	return hasbit(x, p) and x or x + p
@@ -1123,8 +1127,8 @@ function l.gunModeInit()
 	end
 	l.shopUpdate()
 
-	game:GetLevel():RemoveCurse(LevelCurse.CURSE_OF_MAZE)
-	game:GetLevel():RemoveCurse(LevelCurse.CURSE_OF_THE_LOST)
+	game:GetLevel():RemoveCurses(LevelCurse.CURSE_OF_MAZE)
+	game:GetLevel():RemoveCurses(LevelCurse.CURSE_OF_THE_LOST)
 
 	l.newLevelShit()
 end
@@ -1378,7 +1382,8 @@ function l.gunUserInit(en)
 			en:AddCollectible(pas, 999, true)
 		end end
 		--en:AddCostume(config:GetCollectible(425), false)
-		en:GetEffects():AddCollectibleEffect(425)
+		--en:GetEffects():AddCollectibleEffect(425) it's YOU isn't it :(
+		log("he's done it")
 	else
 		d.clips = {5, 5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0}
 	end
@@ -1407,7 +1412,6 @@ l:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, l.playerInit)
 
 --GAME START
 function l:onGameStarted(continue)
-	Isaac.ConsoleOutput('Game started\n')
 	local player = Isaac.GetPlayer(0)
 	local isleon = player:GetPlayerType() == gCON.Leon.Type
 
@@ -1603,7 +1607,7 @@ function l:post_update()
 						end
 						if true then
 							local smoke = Isaac.Spawn(1000, 88, 0, shot.Position + shot.Velocity:Normalized() * -15, (shot.Velocity * -.5):Rotated(-40 + (rng:RandomFloat() * 80)), shot)
-							smoke:GetSprite().Color = Color(1, 1, 1, 1, 75, 75, 75)
+							smoke:GetSprite().Color = Color(1, 1, 1, 1, 0.3, 0.3, 0.3)
 							smoke.PositionOffset = shot.PositionOffset
 						end
 						if shot.Velocity:Length() < 15 then
@@ -1676,9 +1680,9 @@ function l:post_update()
 				--pro time slowdown
 				if d.mygun and d.mygun.protime then
 					if en:IsBoss() then
-						en:AddSlowing(EntityRef(player), 5 * 30, 10, Color(.5, .5, .5, 1, 25, 25, 25))
+						en:AddSlowing(EntityRef(player), 5 * 30, 10, Color(.5, .5, .5, 1, 0.1, 0.1, 0.1))
 					else
-						en:AddSlowing(EntityRef(player), 1, .5, Color(.5, .5, .5, 1, 25, 25, 25))
+						en:AddSlowing(EntityRef(player), 1, .5, Color(.5, .5, .5, 1, 0.1, 0.1, 0.1))
 					end
 				end
 				--portal nerf
@@ -2973,7 +2977,7 @@ function l:bomb_update(bomb)
 					gVAR.flashbangframe = gVAR.renderframe
 					local poof = Isaac.Spawn(1000, 15, 0, bomb.Position, Vector(0, 0), nil)
 					poof.SpriteScale = Vector(1.5, 1.5)
-					poof:GetSprite().Color = Color(1, 1, 1, 1, 150, 150, 150)
+					poof:GetSprite().Color = Color(1, 1, 1, 1, 0.6, 0.6, 0.6)
 					remove = true
 					sfx:Play(snd.grenade.flashbang, 1.5, 0, false, 1)
 				end
@@ -3088,7 +3092,7 @@ function l:ffire_effect(ent)
 	ed.lifetime = ed.lifetime - (.25 + (rng:RandomFloat() * 1.5))
 	if not ed.init then
 		ed.init = true
-		es.Color = Color(.8, .9, 1, 1, 8, 10, 12)
+		es.Color = Color(.8, .9, 1, 1, 0.31, 0.39, 0.47)
 		ed.size = ed.size or 1.2
 	end
 	if ed.lifetime <= 0 then
@@ -3457,7 +3461,7 @@ function l:knife_effect(effect)
 						en:AddBurn(EntityRef(effect.SpawnerEntity), 120, 1)
 						en:GetData().burndamage = dmg / 2
 					elseif status == 'slow' then
-						en:AddSlowing(EntityRef(effect.SpawnerEntity), 90, .5, Color(.5, .5, .5, 1, 25, 25, 25))
+						en:AddSlowing(EntityRef(effect.SpawnerEntity), 90, .5, Color(.5, .5, .5, 1, 0.1, 0.1, 0.1))
 					elseif status == 'poison' then
 						--addStatus(en, {poison = true, damage = 5})
 						en:AddPoison(EntityRef(effect.SpawnerEntity), 300, 1)
@@ -3648,7 +3652,7 @@ function l:knife_effect(effect)
 			effect.SpriteScale = Vector(scale, scale)
 			if table.chargetime == table.chargereq then
 				local shine = (effect.FrameCount % 2) or 0
-				s.Color = Color(1, 1, 1, d.alpha, math.floor(shine * 80), math.floor(shine * 80), math.floor(shine * 40))
+				s.Color = Color(1, 1, 1, d.alpha, math.floor(shine * 80) / 255, math.floor(shine * 80) / 255, math.floor(shine * 40) / 255)
 			end
 		else
 			effect:Remove()
@@ -4413,7 +4417,7 @@ function l.gunMove(en, gun)
 						local invert = 1 - (flip and 2 or 0)
 						wd.alpha = approach(wd.alpha, 1, .2)
 						ws.FlipY = flip
-						ws.Color = Color(1, 1, 1, wd.alpha, math.floor(shine * 50), math.floor(shine * 50), math.floor(shine * 30))
+						ws.Color = Color(1, 1, 1, wd.alpha, math.floor(shine * 50) / 255, math.floor(shine * 50) / 255, math.floor(shine * 30) / 255)
 
 						wd.rotation = myrot + anim.rot
 						wep.SpriteRotation = (myrot * invert) + anim.rot + shakeoff
@@ -5102,7 +5106,7 @@ function l:weaponUpdate(wep)
 			--d.tgt.Position = sawpos
 
 			local smoke = Isaac.Spawn(1000, 88, 0, pos + rotvec:Normalized() * -12, (rotvec * -10):Rotated(-40 + (rng:RandomFloat() * 80)), wep)
-			smoke:GetSprite().Color = Color(1, 1, 1, 1, 25, 25, 25)
+			smoke:GetSprite().Color = Color(1, 1, 1, 1, 0.1, 0.1, 0.1)
 			smoke.PositionOffset = wep.PositionOffset
 
 			for i, en in ipairs(Isaac.GetRoomEntities()) do
@@ -5332,7 +5336,7 @@ function l.gunFire(en, gun)
 											shot.FallingAcceleration = 1.9
 											shot.FallingSpeed = -4 - ((rng:RandomFloat() * 6) + (d.gunstat.TearHeight / -2))
 											shot.Velocity = (shot.Velocity * (.8 + (rng:RandomFloat()*.6) )):Rotated(-22 + (rng:RandomFloat() * 44))
-											shot:GetSprite().Color = Color(.75 + (rng:RandomFloat() * .25), .5 + (rng:RandomFloat() * .5), .5 + (rng:RandomFloat() * .5), .75 + (rng:RandomFloat() * .25), 1, 1, 1)
+											shot:GetSprite().Color = Color(.75 + (rng:RandomFloat() * .25), .5 + (rng:RandomFloat() * .5), .5 + (rng:RandomFloat() * .5), .75 + (rng:RandomFloat() * .25), 0.039, 0.039, 0.039)
 											shot.Scale = shot.Scale * (1 + (rng:RandomFloat() * .5) )
 										else
 											shot.FallingAcceleration = -.1
@@ -6303,7 +6307,7 @@ function l.markForDeath(victim, dat)
 		local oldcolor = victim:GetColor()
 		if oldcolor.R == 1 and oldcolor.G == 1 and oldcolor.B == 1 then
 			d.oldcolor = oldcolor
-			victim:SetColor(Color(1, .8, .8, 1, 90, 0, 1), 10000, 5, false, false)
+			victim:SetColor(Color(1, .8, .8, 1, 0.36, 0, 0.04), 10000, 5, false, false)
 		end
 		d.deathmarks = {}
 	end
@@ -6344,7 +6348,7 @@ function l:minicrit_effect(ent)
 		if ent.FrameCount % 6 < 3 then
 			ent:SetColor(Color(1, 1, 1, 1, 0, 0, 0), 100, 10, false, false)
 		else
-			ent:SetColor(Color(1, 1, 1, 1, 25, 15, 15), 100, 10, false, false)
+			ent:SetColor(Color(1, 1, 1, 1, 0.1, 0.58, 0.58), 100, 10, false, false)
 		end
 		local scale = math.min(1, ent.FrameCount / 5)
 		ent:GetSprite().Scale = Vector(scale, scale)
@@ -7160,7 +7164,7 @@ function l.gunHud(gamelayer)
 				sprit.Color = Color(0, 0, 0, .3, 0, 0, 0)
 				sprit:RenderLayer(1, Vector(screensize.X / 2, 0) + Vector(-64, 24) + Vector(2, 2))
 				if gun.activecharge >= 1 then for i = 1, 4 do
-					sprit.Color = Color(1, 1, 1, 1, 256, 256, 256)
+					sprit.Color = Color(1, 1, 1, 1, 1, 1, 1)
 					sprit:RenderLayer(1, Vector(screensize.X / 2, 0) + Vector(-64, 24) + off[i])
 				end end
 				sprit.Color = Color(1, 1, 1, 1, 0, 0, 0)
@@ -7174,7 +7178,7 @@ function l.gunHud(gamelayer)
 				sprit.Color = Color(0, 0, 0, .3, 0, 0, 0)
 				sprit:RenderLayer(0, Vector(screensize.X / 2, 0) + Vector(64, 16) + Vector(2, 2))
 				if (knife.stock == knife.maxstock or knife.chargetime >= knife.chargereq) then for i = 1, 4 do
-					sprit.Color = Color(1, 1, 1, 1, 256, 256, 256)
+					sprit.Color = Color(1, 1, 1, 1, 1, 1, 1)
 					sprit:RenderLayer(0, Vector(screensize.X / 2, 0) + Vector(64, 16) + off[i])
 				end end
 				sprit.Color = Color(1, 1, 1, 1, 0, 0, 0)
@@ -8140,7 +8144,7 @@ function l.drawMenu(table)
 		modui:ReplaceSpritesheet(1, config:GetCollectible(221).GfxFileName)
 		modui:LoadGraphics()
 		modui:Play("ShopIdle")
-		modui.Color = Color(0, 0, 0, .5, 54, 47, 45)
+		modui.Color = Color(0, 0, 0, .5, 0.217, 0.184, 0.176)
 		modui:RenderLayer(1, root + pos + Vector(0, 8 + minwob) + Vector(2, 2))
 		modui.Color = Color(1, 1, 1, 1, 0, 0, 0)
 		modui:RenderLayer(1, root + pos + Vector(0, 8 + minwob))
@@ -8154,7 +8158,7 @@ function l.drawMenu(table)
 			wepui:ReplaceSpritesheet(0, gWEP.BaseSprite[id.base])
 			wepui:LoadGraphics()
 			wepui:Play("Idle")
-			wepui.Color = Color(0, 0, 0, .5, 54, 47, 45)
+			wepui.Color = Color(0, 0, 0, .5, 0.217, 0.184, 0.176)
 			wepui:Render(root + pos + Vector(id.noammo and 0 or -16, minwob) + Vector(2, 2), Vector(0, 0), Vector(0, 0))
 			wepui.Color = Color(1, 1, 1, 1, 0, 0, 0)
 			wepui:Render(root + pos + Vector(id.noammo and 0 or -16, minwob), Vector(0, 0), Vector(0, 0))
@@ -8165,7 +8169,7 @@ function l.drawMenu(table)
 					pickupui:ReplaceSpritesheet(0, pocket[gPOC.ammolist[id.ammotype]].sprite); pickupui:LoadGraphics()
 				end
 				pickupui:Play("Idle")
-				pickupui.Color = Color(0, 0, 0, .5, 54, 47, 45)
+				pickupui.Color = Color(0, 0, 0, .5, 0.217, 0.184, 0.176)
 				pickupui:RenderLayer(0, root + pos + Vector((gWEP.BaseLength[id.base]/2) + 4, 7 + minwob) + Vector(2, 2))
 				pickupui.Color = Color(1, 1, 1, 1, 0, 0, 0)
 				pickupui:RenderLayer(0, root + pos + Vector((gWEP.BaseLength[id.base]/2) + 4, 7 + minwob))
@@ -8200,7 +8204,7 @@ function l.drawMenu(table)
 			modui:ReplaceSpritesheet(1, config:GetCollectible(id).GfxFileName)
 			modui:LoadGraphics()
 			modui:Play("ShopIdle")
-			modui.Color = Color(0, 0, 0, .5, 54, 47, 45)
+			modui.Color = Color(0, 0, 0, .5, 0.217, 0.184, 0.176)
 			modui:RenderLayer(1, root + pos + Vector(0, 8 + minwob) + Vector(2, 2))
 			modui.Color = Color(1, 1, 1, 1, 0, 0, 0)
 			modui:RenderLayer(1, root + pos + Vector(0, 8 + minwob))
@@ -8210,7 +8214,7 @@ function l.drawMenu(table)
 		else
 			pickupui:ReplaceSpritesheet(0, pocket[id].sprite); pickupui:LoadGraphics()
 			pickupui:Play("Idle")
-			pickupui.Color = Color(0, 0, 0, .5, 54, 47, 45)
+			pickupui.Color = Color(0, 0, 0, .5, 0.217, 0.184, 0.176)
 			pickupui:RenderLayer(0, root + pos + Vector(0, 4 + minwob) + Vector(2, 2))
 			pickupui.Color = Color(1, 1, 1, 1, 0, 0, 0)
 			pickupui:RenderLayer(0, root + pos + Vector(0, 4 + minwob))

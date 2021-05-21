@@ -1,3 +1,5 @@
+local rng = RNG()
+
 local basedata = {
   handgun = {Isaac.GetItemIdByName("Handgun"), "gun_pistol", 10},
 	punishinghandgun = {Isaac.GetItemIdByName("Punishing Handgun"), "gun_punishme", 17},
@@ -20,6 +22,7 @@ local basedata = {
 	grenadelauncher = {Isaac.GetItemIdByName("Grenade Launcher"), "gun_grenadelauncher", 40},
 	rocketlauncher = {Isaac.GetItemIdByName("Rocket Launcher"), "gun_rpg", 40},
 	goldenrevolver = {Isaac.GetItemIdByName("Golden Revolver"), "gun_goldenrevolver", 16},
+	slugger = {Isaac.GetItemIdByName("Slugger"), "gun_slugger", 20},
 }
 
 gunmod_WEP = {
@@ -773,6 +776,29 @@ gunmod_WEP.WeaponTypes = {
     },
     sndshoot = {snd.shoot.nt.pistol, 1, 1}, sndrl1 = {snd.cock.start4, 1, 1}, sndrl2 = {snd.cock.finish4, 1, 1},
   },
+  slugger = {
+  meta = {parent = 'defaultauto', forsale = true, rank = 2},
+    name = 'Slugger',
+    base = 'slugger',
+    description = 'Packs a punch',
+    velocity = rng:RandomInt(10),
+    ammotype = EAM.shotgun,
+    clipsize = 8,
+    screenshake = 5,
+    reloadtime = 8, 
+    as = {maxfiredelay = 24},
+    ms = {maxfiredelay = 1, damage = 2},
+    spreadmin = 5,
+    reloadbullet = 8,
+    upgrade = {
+      {add = {clipsize = 1}, str = 'clip +1'}, -- 1
+      {add = {clipsize = 1}, str = 'clip +1'}, -- 2
+      {add = {clipsize = 1}, str = 'clip +1'}, -- 3
+      {add = {clipsize = 1}, str = 'clip +1'}, -- 4
+      {add = {damage = 1.5}, str = 'damage up!'}, -- 5
+    },
+    sndshoot = {snd.shoot.shotgun.heavy, 1, 1}, sndrl1 = {snd.cock.start, 1, 1}, sndrl2 = {snd.cock.finish, 1, 1},
+  },
   --FAMILIAR CUSTOMS
   fam_base = {
     meta = {parent = 'default'},
@@ -813,5 +839,3 @@ for i, wep in pairs(gWEP.WeaponTypes) do
     wep.triggers = newtable
   end
 end
-
-error()

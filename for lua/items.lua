@@ -18,9 +18,12 @@ local nonmods = {9, 13, 17, 18, 20, 21, 53, 54, 60, 63, 64, 72, 73, 74, 75, 76, 
   281, 302, 303, 311, 321, 325, 327, 328, 333, 335, 337, 344, 356, 371, 375, 376, 377, 380, 388,
   391, 402, 409, 412, 413, 414, 416, 420, 423, 425, 428, 433, 446, 447, 448, 451, 452,
   454, 457, 458, 464, 468, 492, 497, 511, 514, 518, 525, 534, 535, 538, 539, 541, 542, 543,
-  548, 549, 550, 551, 552,
+  548, 549, 550, 551, 552, 565, 566, 567, 568, 569, 571, 574, 575, 576, 577, 581, 584, 586, 588,
+  589, 590, 593, 594, 598, 599, 602, 603, 607, 608, 610, 612, 615, 619, 621, 624, 626, 627, 629, 
+  632, 633, 645, 647, 649, 651, 652, 658, 660, 664, 665, 668, 670, 672, 674, 675, 676, 677, 679, 
+  681, 682, 688, 689, 691, 692, 694, 697, 700, 701, 717, 
   --bombs
-  19, 37, 106, 125, 140, 190, 209, 220, 256, 353, 366, 367, 432, 517,
+  19, 37, 106, 125, 140, 190, 209, 220, 256, 353, 366, 367, 432, 517, 563, 583, 614, 646, 727,
   --content
   gCON.Id.Placeholder, gCON.Id.AttacheCase,
 }
@@ -80,7 +83,15 @@ local banlist = {
   531, -- haemolacria
   539, -- mystery egg
   540, -- flat stone
-  541, -- brittle bones
+  541, -- marrow
+  562, -- rock bottom
+  579, -- spirit sword
+  597, -- neptunus
+  622, -- genesis
+  654, -- false phd
+  667, -- strawman
+  703, -- esau jr 
+  721, -- TMTRAINER
 }
 local banlist2 = { -- bans only on hard+ difficulty
   109, -- money = power
@@ -186,7 +197,7 @@ moddat[149] = { -- ipecac
   set = {firemode = EFM.charge, maxchamberpct = 1/4},
   add = {
     as = {range = 3}, sp = {ESP.fullcharge, ESP.chargedamage},
-    tf = {{flag = TearFlags.TEAR_EXPLOSIVE + TearFlags.TEAR_POISON,
+    tf = {{flag = TearFlags.TEAR_EXPLOSIVE | TearFlags.TEAR_POISON,
     color = Color(.7, 1, .75, 1, 0, 0, 0)}}
   },
   mult = {damagemult = 1/3, spreadmin = .8, spreadmax = .8, ms = {damage = 3, maxfiredelay = 2/3}},
@@ -316,7 +327,7 @@ moddat[465] = { -- analog stick
   set = {digitalaim = true},
 }
 moddat[472] = { -- king baby
-  disable = true,
+  disable = true, -- lmao this could be pretty funny actually
   set = {stickwhenfiring = true, donotslow = true},
   add = {tf = {{flag = TearFlags.TEAR_SPECTRAL}}},
   mult = {recoil = 0},
@@ -366,7 +377,7 @@ while id <= 999 or config:GetCollectible(id) do
 	if item and item ~= 0 then
 	  --(temp) ban all familiars
 	  if item.Type == ItemType.ITEM_FAMILIAR then--hasbit(item.CacheFlags, CacheFlag.CACHE_FAMILIARS) then
-      if id ~= 360 then -- temp incubus exception
+      if id ~= 360 and id ~= 698 then -- temp incubus (and twisted pair) exception
   	    gITM.ban[id] = true
         gITM.type[id] = EIT.mod
       end
@@ -377,7 +388,7 @@ while id <= 999 or config:GetCollectible(id) do
       gITM.type[id] = EIT.normal
 	  end
 	  --vanilla
-	  if id <= 552 then
+	  if id <= 729 then
 	    if not gITM.type[id] then
 	      gITM.type[id] = EIT.mod
 	      if moddat[id] and moddat[id].disable then
@@ -423,7 +434,7 @@ while id <= 999 or config:GetCollectible(id) do
 end
 
 for hhh, trig in ipairs(gWEP.TrigList) do
-  if trig.mut.add.tf then
+  if trig.mut and trig.mut.add.tf then
     local newtable = {}
     for i, flag in ipairs(trig.mut.add.tf) do
       table.insert(gWEP.TfList, flag)
@@ -432,5 +443,3 @@ for hhh, trig in ipairs(gWEP.TrigList) do
     trig.mut.add.tf = newtable
   end
 end
-
-error()
