@@ -7,7 +7,7 @@ local ammolist = {"am1", "am2", "am3", "am4", "am5", "am6", "am7"}
 local grenadelist = {"gr", "gg", "gb"}
 local grenadeitem = {"Incendiary Grenade", "Hand Grenade", "Flash Grenade"}
 local herbmix = {
-	hg = {hg = "hgg", hr = "hgr", hy = "hgy", hgg = "hggg", hry = "hgry", hb = "hgb"},
+	hg = {hg = "hgg", hr = "hgr", hy = "hgy", hgg = "hggg", hry = "hgry", hb = "hgb", hby = "hgby"},
 	hgg = {hg = "hggg"},
 	hr = {hg = "hgr", hy = "hry", hgy = "hgry"},
 	hy = {hg = "hgy", hr = "hry", hb = "hby", hgr = "hgry", hgb = "hgby"},

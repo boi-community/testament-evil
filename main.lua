@@ -1,5 +1,5 @@
 --MOD
-local l = RegisterMod("Leon", 1)
+l = RegisterMod("Leon", 1)
 local _log = {}
 local game = Game()
 local sfx = SFXManager()
@@ -41,6 +41,8 @@ include("for lua/pocket"); l.data.poc = gunmod_POCKET; local gPOC = gunmod_POCKE
 	local pocket = gPOC.dat
 --characters
 include("for lua/isaacs"); l.data.chr = gunmod_CHR; local gCHR = gunmod_CHR
+--dead sea scrolls
+include("for lua/menu")
 
 CL_white = Color(1, 1, 1, 1, 0, 0, 0)
 CL_pencil = Color(54/255, 47/255, 45/255, 1, 0, 0, 0)
@@ -954,7 +956,7 @@ function l.getInput(pnum)
 			else
 				menu.drag = Vector(0, 0)
 			end
-			if Input.IsButtonTriggered(Keyboard.KEY_C, indx) or Input.IsButtonTriggered(Keyboard.KEY_I, indx) then
+			if Input.IsButtonTriggered(Keyboard.KEY_G, indx) or Input.IsButtonTriggered(Keyboard.KEY_I, indx) then
 				menu.toggle = true
 			end
 			if Input.IsButtonTriggered(Keyboard.KEY_UP, indx) or
