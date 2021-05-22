@@ -2605,59 +2605,57 @@ end
 
 MenuProvider = {}
 
--- Fiend Folio's menu code starts here!
-include("for lua/usersettings"); local gSET= gunmod_SET;
-
+-- Testament Evil's menu code starts here!
 function MenuProvider.SaveSaveData()
     l.saveData()
 end
 
 function MenuProvider.GetPaletteSetting()
-    return gSET.MenuPalette
+    return l.data.set.MenuPalette
 end
 
 function MenuProvider.SavePaletteSetting(var)
-    gSET.MenuPalette = var
+    l.data.set.MenuPalette = var
 end
 
 function MenuProvider.GetHudOffsetSetting()
-    return gSET.HudOffset
+    return l.data.set.HudOffset
 end
 
 function MenuProvider.SaveHudOffsetSetting(var)
-    gSET.HudOffset = var
+    l.data.set.HudOffset = var
 end
 
 function MenuProvider.GetGamepadToggleSetting()
-    return gSET.MenuControllerToggle
+    return l.data.set.MenuControllerToggle
 end
 
 function MenuProvider.SaveGamepadToggleSetting(var)
-    gSET.MenuControllerToggle = var
+    l.data.set.MenuControllerToggle = var
 end
 
 function MenuProvider.GetMenuKeybindSetting()
-    return gSET.MenuKeybind
+    return l.data.set.MenuKeybind
 end
 
 function MenuProvider.SaveMenuKeybindSetting(var)
-    gSET.MenuKeybind = var
+    l.data.set.MenuKeybind = var
 end
 
 function MenuProvider.GetMenusNotified()
-    return gSET.MenusNotified
+    return l.data.set.MenusNotified
 end
 
 function MenuProvider.SaveMenusNotified(var)
-    gSET.MenusNotified = var
+    l.data.set.MenusNotified = var
 end
 
 function MenuProvider.GetMenusPoppedUp()
-    return gSET.MenusPoppedUp
+    return l.data.set.MenusPoppedUp
 end
 
 function MenuProvider.SaveMenusPoppedUp(var)
-    gSET.MenusPoppedUp = var
+    l.data.set.MenusPoppedUp = var
 end
 
 local dssCoreIncluded = 2
@@ -2722,16 +2720,34 @@ local leondirectory = {
 				choices = {'wacky easy', 'easy', 'normal', 'hard', 'professional', 'hell'},
 				variable = 'Difficulty',
 				setting = 3,
+                load = function()
+                    if l.data.set.Difficulty then return l.data.set.Difficulty else return setting end
+                end,
+                store = function(var)
+                    l.data.set.Difficulty = var
+                end,
 			},
 			{str = 'darkness',
 				choices = {'never', 'sometimes', 'always'},
 				variable = 'CurseOfDarkness',
 				setting = 2,
+                load = function()
+                    if l.data.set.CurseOfDarkness then return l.data.set.CurseOfDarkness else return setting end
+                end,
+                store = function(var)
+                    l.data.set.CurseOfDarkness = var
+                end,
 			},
 			{str = 'damage spread',
 				choices = {'off', 'low', 'high'},
 				variable = 'DamageSpread',
 				setting = 1,
+                load = function()
+                    if l.data.set.DamageSpread then return l.data.set.DamageSpread else return setting end
+                end,
+                store = function(var)
+                    l.data.set.DamageSpread = var
+                end,
 			},
 		},
 	},
@@ -2745,21 +2761,45 @@ local leondirectory = {
 				choices = {'thick', 'thin'},
 				variable = 'BarThin',
 				setting = 1,
+                load = function()
+                    if l.data.set.BarThin then return l.data.set.BarThin else return setting end
+                end,
+                store = function(var)
+                    l.data.set.BarThin = var
+                end,
 			},
 			{str = 'hud opacity',
 				choices = {'off', '25%', '50%', '75%', '100%'},
 				variable = 'HudOpacity',
 				setting = 3,
+                load = function()
+                    if l.data.set.HudOpacity then return l.data.set.HudOpacity else return setting end
+                end,
+                store = function(var)
+                    l.data.set.HudOpacity = var
+                end,
 			},
 			{str = 'show stats',
 				choices = {'never', 'in menu only', 'stat change', 'any change', 'always'},
 				variable = 'ShowStats',
 				setting = 3,
+                load = function()
+                    if l.data.set.ShowStats then return l.data.set.ShowStats else return setting end
+                end,
+                store = function(var)
+                    l.data.set.ShowStats = var
+                end,
 			},
 			{str = 'custom cursor',
 				choices = {'never', 'fullscreen', 'always in gm', 'always'},
 				variable = 'ShowGunCursor',
 				setting = 3,
+                load = function()
+                    if l.data.set.ShowGunCursor then return l.data.set.ShowGunCursor else return setting end
+                end,
+                store = function(var)
+                    l.data.set.ShowGunCursor = var
+                end,
 			},
 		},
 	},
@@ -2771,21 +2811,45 @@ local leondirectory = {
 				choices = {'never', 'some', 'spam', 'mega spam'},
 				variable = 'MerchantVoice',
 				setting = 2,
+                load = function()
+                    if l.data.set.MerchantVoice then return l.data.set.MerchantVoice else return setting end
+                end,
+                store = function(var)
+                    l.data.set.MerchantVoice = var
+                end,
 			},
 			{str = 'gib limit',
 				choices = {'off', '10', '20', '30', '50', 'unlimited'},
 				variable = 'GoreLimit',
 				setting = 4,
+                load = function()
+                    if l.data.set.GoreLimit then return l.data.set.GoreLimit else return setting end
+                end,
+                store = function(var)
+                    l.data.set.GoreLimit = var
+                end,
 			},
 			{str = 'light saturation',
 				choices = {'0%', '50%', '75%', '100%', '150%', '200%'},
 				variable = 'LightingSaturation',
 				setting = 4,
+                load = function()
+                    if l.data.set.LightingSaturation then return l.data.set.LightingSaturation else return setting end
+                end,
+                store = function(var)
+                    l.data.set.LightingSaturation = var
+                end,
 			},
 			{str = 'shot brightness',
 				choices = {'0%', '25%', '50%', '75%', '100%'},
 				variable = 'ShotFlashBrightness',
 				setting = 4,
+                load = function()
+                    if l.data.set.ShotFlashBrightness then return l.data.set.ShotFlashBrightness else return setting end
+                end,
+                store = function(var)
+                    l.data.set.ShotFlashBrightness = var
+                end,
 			},
 		},
 	},
@@ -2803,17 +2867,18 @@ local leondirectory = {
 
 local credits = {
     {"original mod", nosel = true},
-    {{"melon", "design and programming"}},
+    {{"melon", "design, programming"}},
     {{"lung", "sprites"}},
     {{"jm2k", "music"}},
 	"",
     {"continuation", nosel = true},
-    {{"jerb", "programming"}, tooltip = {"bored"}},
-    {{"peas", "sprites"}, tooltip = {"made antibirth"}},
+    {{"jerb", "design, programming"}, tooltip = {"bored"}},
+    {{"peas", "design, sprites"}, tooltip = {"made antibirth"}},
     "",
     {"special thanks", nosel = true},
     {{"deadinfinity", "dead sea scrolls"}, tooltip = {"this menu!"}},
-    {{"sbody2", "leon vs sprite"}, tooltip = {"taken from", "classy vs", "screen"}}
+    {{"sbody2", "leon vs sprite"}, tooltip = {"taken from", "classy vs", "screen"}},
+    {{"and viewers like you", "thank you!"}}
 }
 
 local helps = {
@@ -2947,66 +3012,3 @@ local leondirectorykey = {
 }
 
 dssmenu.AddMenu("Testament Evil", {Run = dssmod.runMenu, Open = dssmod.openMenu, Close = dssmod.closeMenu, Directory = leondirectory, DirectoryKey = leondirectorykey})
-
-dssmenu.AddPalettes({
-    {
-        Name = "bubbly",
-        {145, 188, 191}, -- Back
-        {0, 65, 82}, -- Text
-        {0, 106, 146}, -- Highlight Text
-    },
-    {
-        Name = "bustin'",
-        {102, 65, 55},
-        {255, 138, 0},
-        {255, 197, 0},
-    },
-    {
-        Name = "expensive",
-        {215, 162, 55},
-        {255, 214, 141},
-        {255, 255, 255},
-    },
-    {
-        Name = "friendly",
-        {215, 94, 53},
-        {135, 60, 146},
-        {182, 39, 203},
-    },
-    {
-        Name = "inky",
-        {79, 80, 89},
-        {191, 148, 61},
-        {205, 182, 133},
-    },
-    {
-        Name = "load mega",
-        {121, 79, 57},
-        {188, 146, 100},
-        {211, 187, 153},
-    },
-    {
-        Name = "scar tissue",
-        {190, 173, 172},
-        {149, 59, 70},
-        {129, 50, 55},
-    },
-    {
-        Name = "honeyed",
-        {198, 170, 89},
-        {47, 48, 63},
-        {89, 48, 38},
-    },
-    {
-        Name = "wart",
-        {77, 84, 63},
-        {110, 122, 79},
-        {162, 165, 100},
-    },
-    {
-        Name = "watered down",
-        {175, 178, 198},
-        {86, 88, 120},
-        {67, 73, 122},
-    }
-})
