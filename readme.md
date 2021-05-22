@@ -23,8 +23,11 @@ The following are some things you should know if you want to play the old unfini
 		* GREEN + GREEN = heals 1 1/2 red hearts
 		* GREEN + GREEN + GREEN = heals all red hearts
 		* GREEN + RED = heals all red hearts
+		* GREEN + BLUE = adds 1/2 a soul heart
+		* GREEN + BLUE + BLUE = adds 1 soul heart
 		* GREEN + YELLOW = adds 1 heart container and heals 1/2 a red heart
 		* GREEN + RED + YELLOW = adds 1 heart container and heals all red hearts
+		* GREEN + BLUE + YELLOW = adds 1 heart container and 1 soul heart
 	* Pick up and use a box of ammo to gain ammo and refill clips of that type of ammo. Different types of weapons use different types of ammo, but ammo pools of a specific type are shared.
 	* Use a grenade to ready it. Left click to throw or right click to lob. Using a grenade with a grenade launcher in the inventory instead refills the launcher with grenades of that type.
 
@@ -45,11 +48,11 @@ The following are some things you should know if you want to play the old unfini
 * Many things may go wrong if you exit and continue.
 * You may encounter brand new bugs you can call your very own or rare mysterious crashes for no obvious reason.
 ### New Bugs with Repentance
-* Shop bars disappear on room clear. Shops still can't be entered, though, so this is just visual.
 * Hand grenades never explode.
 * Night Light has been temporarily disabled, as TemporaryEffects semi-reliably crashes the game currently.
-* There are no sound effects. This is a bug with the Repentance API out of my control. See Meowlala/RepentanceAPIIssueTracker#103
-
+* There are no sound effects. This is a bug with the Repentance API out of my control. See [this bug](https://github.com/Meowlala/RepentanceAPIIssueTracker/issues/103) for more info.
+* Multiple players onscreen (Jacob & Esau, Strawman, etc) breaks horrifically.
+  
 ## Special Console Commands
 1. `ldebug`: enables leon debug mode
 2. `lspawn`: spawns lots of leon items

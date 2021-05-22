@@ -1383,7 +1383,6 @@ function l.gunUserInit(en)
 		end end
 		--en:AddCostume(config:GetCollectible(425), false)
 		--en:GetEffects():AddCollectibleEffect(425) it's YOU isn't it :(
-		log("he's done it")
 	else
 		d.clips = {5, 5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0}
 	end
