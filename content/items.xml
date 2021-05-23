@@ -4,6 +4,7 @@
 	<passive name="Placeholder" description="it's nothing..." cache="" gfx="collectible_blank.png" cache="all" />
 	
 	<passive name="Handgun" description="A standard 9mm handgun" cache="" gfx="collectible_blank.png" cache="all" />
+	<passive name="Punishing Handgun" description="Blast a hole through multiple enemies!" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Lucky Burst" description="Uses up ammo quickly..." cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Machine Pistol" description="A fully-automatic machine pistol" cache="" gfx="collectible_blank.png" cache="all" />
 	<passive name="Pump-Action Shotgun" description="Don't leave home without it" cache="" gfx="collectible_blank.png" cache="all" />
